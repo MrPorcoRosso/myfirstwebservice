@@ -1,0 +1,6 @@
+
+#TO SWITCH TO OTHER BRANCH
+git branch --set-upstream-to=development/development development
+git switch development
+git pull 
+git push development

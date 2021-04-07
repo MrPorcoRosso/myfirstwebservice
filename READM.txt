@@ -2,5 +2,7 @@
 #TO SWITCH TO OTHER BRANCH
 git branch --set-upstream-to=development/development development
 git switch development
+#Update head 
 git pull 
+#Pushing any changes
 git push development

@@ -6,3 +6,11 @@ git switch development
 git pull 
 #Pushing any changes
 git push development
+
+
+
+
+#TO MERGE CHANGES FROM BRANCH TO OTHER BRANCH
+git checkout BranchB
+git merge BranchA
+git push origin BranchB

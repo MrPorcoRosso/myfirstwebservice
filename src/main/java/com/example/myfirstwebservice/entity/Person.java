@@ -7,6 +7,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+/**
+ * 
+ *@author aristotle miranda
+ *@version 1.0
+ *@since January 1, 1970
+ *	<ul>
+ * <li>This is one</li>
+ * <li>This is two</li>
+ * </ul>
+ * <p>This is a sample paragraph. This is the entity for the table Person in my first
+ * web service. </p>
+ **/
+
+
 @Entity
 @Table(name = "Person")
 public class Person implements Serializable {
@@ -17,7 +32,7 @@ public class Person implements Serializable {
 	 */
 	@Id
 	@Column
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)	
 	private int id;
 	
 	@Column
@@ -30,9 +45,15 @@ public class Person implements Serializable {
 	private String address;
 	
 	//getter-setter SHIFT+ALT+S
+	
+	 /**
+	  * Getter for the id field
+	  * @return id
+	  * */	
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}

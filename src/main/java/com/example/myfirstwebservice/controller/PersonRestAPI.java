@@ -15,8 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.myfirstwebservice.entity.Person;
 import com.example.myfirstwebservice.service.PersonRecordService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
 @RestController
 @RequestMapping("/record")
+@Api(value = "Person Rest Controller")
 public class PersonRestAPI {
 	
 	@Autowired
@@ -24,7 +29,8 @@ public class PersonRestAPI {
 	
 	///http://localhost:8080/record/person/id
 	@GetMapping("/person/{id}")
-	public Person getPersonInfo(@PathVariable("id") int id) throws Exception {
+	@ApiOperation(value = "Get Person Information", response = Person.class, notes = "Returns a single record of Person table.")
+	public Person getPersonInfo(@ApiParam(value = "This is the primary id of the record.") @PathVariable("id") int id) throws Exception {
 		Person person = service.getPersonInfo(id);
 		return person;		
 	}

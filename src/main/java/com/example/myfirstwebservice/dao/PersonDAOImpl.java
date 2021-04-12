@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.myfirstwebservice.controller.model.MessageType;
 import com.example.myfirstwebservice.entity.Person;
+import com.example.myfirstwebservice.exception.CustomException;
 import com.example.myfirstwebservice.repo.PersonRepo;
 
 @Repository
@@ -20,11 +22,11 @@ public class PersonDAOImpl {
 	PersonRepo personRepo;
 	
 	//Read
-	public Person getPersonInfo(int id) throws Exception {
+	public Person getPersonInfo(int id) throws CustomException {
 		Optional<Person> person = personRepo.findById(id);
 		
 		if(person.isEmpty()) {
-			throw new NoSuchElementException("No record");
+			throw new CustomException(MessageType.RECORD_NOT_FOUND.getCode());
 		}
 		
 		return person.get();
